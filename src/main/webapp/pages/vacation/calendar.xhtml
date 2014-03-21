@@ -1,0 +1,16 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:form>
+		<p:growl id="growl" showDetail="true" />
+		<p:fieldset legend="Calendar" toggleable="true" toggleSpeed="500">
+			<p:ajax event="toggle" update="growl" />
+			<h:panelGrid columns="1" cellpadding="10" width="100%">
+				Calendar
+			</h:panelGrid>
+		</p:fieldset>
+	</h:form>
+</ui:composition>

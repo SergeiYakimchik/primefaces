@@ -1,9 +1,42 @@
-<ui:composition 
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui">
-    
-    
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+
+	<h:panelGrid columns="1" width="100%">
+		<h:panelGroup>
+			<p:button value="Ovt Request"></p:button>
+			<p:button value="Vacation Request"></p:button>
+		</h:panelGroup>
+	</h:panelGrid>
+	<h:form>
+		<p:growl id="growl" showDetail="true" />
+		<p:fieldset legend="Vacation Request" toggleable="true"	toggleSpeed="500">
+			<p:ajax event="toggle" update="growl" />
+			<h:panelGrid columns="1" cellpadding="10" width="100%">
+				<p:dataTable id="dataTable" var="c" value="#{contactController.contacts}" draggableColumns="true" paginator="true" rows="10">
+					<f:facet name="header">     					 
+						Concacts  
+			       	</f:facet>
+					<p:column headerText="id">
+						<h:outputText value="#{c.id}" />
+					</p:column>
+					<p:column headerText="Name">
+						<h:outputText value="#{c.name}" />
+					</p:column>
+					<p:column headerText="Address">
+						<h:outputText value="#{c.address}" />
+					</p:column>
+					<p:column headerText="Phone">
+						<h:outputText value="#{c.phone}" />
+					</p:column>
+					<p:column headerText="Price">
+						<h:outputText value="#{c.price}" />
+					</p:column>
+				</p:dataTable>
+			</h:panelGrid>
+		</p:fieldset>
+	</h:form>
 </ui:composition>
