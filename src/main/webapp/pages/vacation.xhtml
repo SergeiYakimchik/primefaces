@@ -11,16 +11,9 @@
 </h:head>
 <h:body>
 
-    <h:panelGrid columns="1" cellpadding="10" width="100%">
-		<h:form>
-			<p:tabMenu activeIndex="#{vacationController.activeIndex}">
-				<p:menuitem value="Vacation" url="vacation.xhtml" icon="ui-icon-star" />
-				<p:menuitem value="Org Chart" url="orgChart.xhtml" icon="ui-icon-search" />
-				<p:menuitem value="Reports" url="reports.xhtml" icon="ui-icon-document" />
-				<p:menuitem value="Profile" url="profile.xhtml" icon="ui-icon-person" />
-			</p:tabMenu>
-		</h:form>
-	</h:panelGrid>
+	<ui:param name="controller" value="#{vacationController}"></ui:param>
+	
+	<ui:include src="include/header.xhtml"/>
 
 	<h:panelGrid columns="1" cellpadding="10" width="100%">
 		<p:tabView id="tabView">

@@ -7,7 +7,7 @@ import javax.faces.bean.ManagedBean;
  *
  * @author siarhei_yakimchyk
  */
-@ManagedBean
+@ManagedBean(name="vacationController")
 public class VacationController {
 	
 	/** The Constant activeIndex. */

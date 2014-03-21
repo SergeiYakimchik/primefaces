@@ -7,7 +7,7 @@ import javax.faces.bean.ManagedBean;
  * @author siarhei_yakimchyk
  *
  */
-@ManagedBean
+@ManagedBean(name="profileController")
 public class ProfileController {
 	
 	/** The Constant activeIndex. */
@@ -19,7 +19,6 @@ public class ProfileController {
 	 * @return the active index
 	 */
 	public int getActiveIndex() {
-		System.out.println(activeIndex);
 		return activeIndex;
 	}
 }

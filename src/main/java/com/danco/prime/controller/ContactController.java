@@ -22,8 +22,7 @@ public class ContactController {
 	 * @return the contacts
 	 */
 	public List<Contact> getContacts () {
-		List<Contact> list = store.getContacts();
-		return list;
+		return store.getContacts();
 	}
 	
 }

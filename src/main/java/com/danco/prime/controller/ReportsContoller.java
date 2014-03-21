@@ -7,7 +7,7 @@ import javax.faces.bean.ManagedBean;
  * @author siarhei_yakimchyk
  *
  */
-@ManagedBean
+@ManagedBean(name="reportsContoller")
 public class ReportsContoller {
 	
 	/** The Constant activeIndex. */
