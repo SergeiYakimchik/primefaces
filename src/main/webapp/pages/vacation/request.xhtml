@@ -7,14 +7,15 @@
 
 	<h:panelGrid columns="1" width="100%">
 		<h:panelGroup>
-			<p:button id="ovtBtn" value="Ovt Request" title="Ovt Request Btn">
-				<p:tooltip for="ovtBtn" showEvent="mouseover" hideEvent="mouseout"/> 
-			</p:button>
-			
-			<p:button id="vacBtn" value="Vacation Request" title="Vacation Request Btn">
-				<p:tooltip for="vacBtn" showEvent="mouseover" hideEvent="mouseout"/> 
-			</p:button>
-			
+			<h:form>
+				<p:commandButton id="ovtBtn" value="Ovt Request" title="Ovt Request Btn" onclick="ovtDlg.show();">
+					<p:tooltip for="ovtBtn" showEvent="mouseover" hideEvent="mouseout"/> 
+				</p:commandButton>
+				
+				<p:commandButton id="vacBtn" value="Vacation Request" title="Vacation Request Btn" onclick="vacDlg.show();">
+					<p:tooltip for="vacBtn" showEvent="mouseover" hideEvent="mouseout"/> 
+				</p:commandButton>
+			</h:form>
 		</h:panelGroup>
 	</h:panelGrid>
 	<h:form>
@@ -46,6 +47,31 @@
 		</p:fieldset>
 		<p:button value=""></p:button>
 	</h:form>
+	
+	<p:dialog header="Vacation Dialog" widgetVar="vacDlg" modal="true" height="auto">  
+		<h:form>
+			<h:panelGrid columns="2" id="panel">
+				<h:outputText value="Name"/>
+				<p:inputText value="#{contactController.contact.name}" required="true"/> 
+				
+				<h:outputText value="Phone"/>
+				<p:inputText value="#{contactController.contact.phone}" required="true"/>   
+				
+				<h:outputText value="Address"/>
+				<p:inputText value="#{contactController.contact.address}" required="true"/> 
+				
+				<h:outputLabel for="price" value="price:" />  
+            	<p:spinner id="price" value="#{contactController.contact.price}" min="0" suffix="$" />  
+			</h:panelGrid>
+			
+			<p:commandButton value="Save" update="panel"/>
+		</h:form>
+	</p:dialog>
+	
+	<p:dialog header="OVT Dialog" widgetVar="ovtDlg" modal="true" height="100">  
+    	<h:outputText value="" />  
+	</p:dialog>
+	
 	
 	
 </ui:composition>

@@ -22,6 +22,13 @@ public class Contact {
 	private Long price;
 	
 	/**
+	 * Instantiates a new contact.
+	 */
+	public Contact() {
+		price = 0L;
+	}
+
+	/**
 	 * Gets the id.
 	 *
 	 * @return the id
