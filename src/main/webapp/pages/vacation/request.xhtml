@@ -7,12 +7,12 @@
 
 	<h:panelGrid columns="1" width="100%">
 		<h:panelGroup>
-			<p:button value="Ovt Request" title="Ovt Request Btn">
-				<p:tooltip showEvent="mouseover" hideEvent="mouseout"/> 
+			<p:button id="ovtBtn" value="Ovt Request" title="Ovt Request Btn">
+				<p:tooltip for="ovtBtn" showEvent="mouseover" hideEvent="mouseout"/> 
 			</p:button>
 			
-			<p:button value="Vacation Request" title="Vacation Request Btn">
-				<p:tooltip showEvent="mouseover" hideEvent="mouseout"/> 
+			<p:button id="vacBtn" value="Vacation Request" title="Vacation Request Btn">
+				<p:tooltip for="vacBtn" showEvent="mouseover" hideEvent="mouseout"/> 
 			</p:button>
 			
 		</h:panelGroup>
@@ -44,8 +44,8 @@
 				</p:dataTable>
 			</h:panelGrid>
 		</p:fieldset>
+		<p:button value=""></p:button>
 	</h:form>
-	
 	
 	
 </ui:composition>

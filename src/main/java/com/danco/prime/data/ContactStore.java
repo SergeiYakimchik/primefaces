@@ -55,6 +55,10 @@ public class ContactStore {
 	public List<Contact> getContacts() {
 		return contacts;
 	}
+	
+	public boolean add(Contact entity) {
+		return contacts.add(entity);
+	}
 
 
 }

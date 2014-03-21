@@ -1,9 +1,14 @@
 package com.danco.prime.controller;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
+import org.primefaces.event.ItemSelectEvent;
 import org.primefaces.model.chart.CartesianChartModel;
+import org.primefaces.model.chart.ChartSeries;
 import org.primefaces.model.chart.LineChartSeries;
+import org.primefaces.model.chart.PieChartModel;
 
 /**
  * 
@@ -12,21 +17,42 @@ import org.primefaces.model.chart.LineChartSeries;
  */
 @ManagedBean(name="orgChartController")
 public class OrgChartController {
-	
+
 	/** The Constant activeIndex. */
 	private int activeIndex = 1;
 
+	private CartesianChartModel categoryModel;  
+
 	private CartesianChartModel linearModel;  
-	  
-    public OrgChartController() {  
-        createLinearModel();  
-    }  
-  
-    public CartesianChartModel getLinearModel() {  
+
+	private PieChartModel pieModel;  
+
+	public OrgChartController() {  
+		createLinearModel();  
+		createCategoryModel();  
+		createPieModel();  
+	}  
+
+	public void itemSelect(ItemSelectEvent event) {  
+		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Item selected",  
+				"Item Index: " + event.getItemIndex() + ", Series Index:" + event.getSeriesIndex());  
+
+		FacesContext.getCurrentInstance().addMessage(null, msg);  
+	}  
+
+	public CartesianChartModel getCategoryModel() {  
+		return categoryModel;  
+	}  
+
+	public PieChartModel getPieModel() {  
+		return pieModel;  
+	}  
+	
+	public CartesianChartModel getLinearModel() {  
         return linearModel;  
     }  
-  
-    private void createLinearModel() {  
+	
+	private void createLinearModel() {  
         linearModel = new CartesianChartModel();  
   
         LineChartSeries series1 = new LineChartSeries();  
@@ -50,7 +76,41 @@ public class OrgChartController {
   
         linearModel.addSeries(series1);  
         linearModel.addSeries(series2);  
-    }  
+    }
+
+	private void createCategoryModel() {  
+		categoryModel = new CartesianChartModel();  
+
+		ChartSeries boys = new ChartSeries();  
+		boys.setLabel("Boys");  
+
+		boys.set("2004", 120);  
+		boys.set("2005", 100);  
+		boys.set("2006", 44);  
+		boys.set("2007", 150);  
+		boys.set("2008", 25);  
+
+		ChartSeries girls = new ChartSeries();  
+		girls.setLabel("Girls");  
+
+		girls.set("2004", 52);  
+		girls.set("2005", 60);  
+		girls.set("2006", 110);  
+		girls.set("2007", 135);  
+		girls.set("2008", 120);  
+
+		categoryModel.addSeries(boys);  
+		categoryModel.addSeries(girls);  
+	}  
+
+	private void createPieModel() {  
+		pieModel = new PieChartModel();  
+
+		pieModel.set("Brand 1", 540);  
+		pieModel.set("Brand 2", 325);  
+		pieModel.set("Brand 3", 702);  
+		pieModel.set("Brand 4", 421);  
+	} 
 	/**
 	 * Gets the active index.
 	 *
@@ -59,5 +119,5 @@ public class OrgChartController {
 	public int getActiveIndex() {
 		return activeIndex;
 	}
-	
+
 }
