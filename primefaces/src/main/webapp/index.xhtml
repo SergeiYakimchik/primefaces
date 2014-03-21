@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+
+	<h:panelGrid columns="1" cellpadding="10" width="100%">
+		<h:form>
+			<p:tabMenu activeIndex="0">
+				<p:menuitem value="Vacation" url="#" icon="ui-icon-star" />
+				<p:menuitem value="Org Chart" url="#" icon="ui-icon-search" />
+				<p:menuitem value="Reports" url="#" icon="ui-icon-document" />
+				<p:menuitem value="Profile" url="#" icon="ui-icon-person" />
+			</p:tabMenu>
+		</h:form>
+	</h:panelGrid>
+	<h:panelGrid columns="1" cellpadding="10" width="100%">
+		<p:tabView id="tabView">
+			<p:tab id="vacation" title="Vacation">
+				<h:panelGrid columns="1" cellpadding="10" width="100%" >
+				
+					<h:panelGrid columns="1" width="100%">
+						<h:panelGroup>
+							<p:button value="Ovt Request"></p:button>
+							<p:button value="Vacation Request"></p:button>
+						</h:panelGroup>
+					</h:panelGrid>
+					<h:form>
+						<p:growl id="growl" showDetail="true" />
+						<p:fieldset legend="Vacation Request" toggleable="true"
+							toggleSpeed="500">
+							<p:ajax event="toggle" 	update="growl" />
+							<h:panelGrid columns="1" cellpadding="10" width="100%">
+								<p:dataTable id="dataTable" var="c"	value="#{contactController.contacts}" draggableColumns="true" paginator="true" rows="10">
+									<f:facet name="header">  
+			           					 Concacts  
+			       					</f:facet>
+			
+									<p:column headerText="id">
+										<h:outputText value="#{c.id}" />
+									</p:column>
+			
+									<p:column headerText="Name">
+										<h:outputText value="#{c.name}" />
+									</p:column>
+			
+									<p:column headerText="Address">
+										<h:outputText value="#{c.address}" />
+									</p:column>
+			
+									<p:column headerText="Phone">
+										<h:outputText value="#{c.phone}" />
+									</p:column>
+			
+									<p:column headerText="Price">
+										<h:outputText value="#{c.price}" />
+									</p:column>
+								</p:dataTable>
+        					</h:panelGrid>
+						</p:fieldset>
+					</h:form>
+					<h:form>
+						<p:growl id="growl" showDetail="true" />
+						<p:fieldset legend="Vacation Balance" toggleable="true"	toggleSpeed="500">
+							<p:ajax event="toggle" 	update="growl" />
+							<h:panelGrid columns="1" cellpadding="10" width="100%">
+								<p:dataTable id="dataTable" var="c"	value="#{contactController.contacts}" draggableColumns="true" paginator="true" rows="10">
+									<f:facet name="header">  
+			           					 Concacts  
+			       					</f:facet>
+			
+									<p:column headerText="id">
+										<h:outputText value="#{c.id}" />
+									</p:column>
+			
+									<p:column headerText="Name">
+										<h:outputText value="#{c.name}" />
+									</p:column>
+			
+									<p:column headerText="Address">
+										<h:outputText value="#{c.address}" />
+									</p:column>
+			
+									<p:column headerText="Phone">
+										<h:outputText value="#{c.phone}" />
+									</p:column>
+			
+									<p:column headerText="Price">
+										<h:outputText value="#{c.price}" />
+									</p:column>
+								</p:dataTable>
+        					</h:panelGrid>
+						</p:fieldset>
+					</h:form>
+					<h:form>
+						<p:growl id="growl" showDetail="true" />
+						<p:fieldset legend="Calendar" toggleable="true"	toggleSpeed="500">
+							<p:ajax event="toggle" 	update="growl" />
+							<h:panelGrid columns="1" cellpadding="10" width="100%">
+							
+        					</h:panelGrid>
+						</p:fieldset>
+					</h:form>					
+				</h:panelGrid>
+			</p:tab>
+			<p:tab id="history" title="History">
+			
+			</p:tab>
+			<p:tab id="calculator" title="Calculator">
+			
+			</p:tab>
+		</p:tabView>
+	</h:panelGrid>
+
+
+</h:body>
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+
+	<h:panelGrid columns="1" cellpadding="10" width="100%">
+		<h:form>
+			<p:tabMenu activeIndex="#{reportsContoller.activeIndex}">
+				<p:menuitem value="Vacation" url="vacation.xhtml" icon="ui-icon-star" />
+				<p:menuitem value="Org Chart" url="orgChart.xhtml" icon="ui-icon-search" />
+				<p:menuitem value="Reports" url="reports.xhtml" icon="ui-icon-document" />
+				<p:menuitem value="Profile" url="profile.xhtml" icon="ui-icon-person" />
+			</p:tabMenu>
+		</h:form>
+	</h:panelGrid>
+
+</h:body>
+</html>

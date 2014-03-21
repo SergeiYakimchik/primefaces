@@ -1,0 +1,19 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+    
+    <h:panelGrid columns="1" cellpadding="10" width="100%">
+		<h:form>
+			<p:tabMenu activeIndex="#{controller.activeIndex}">
+				<p:menuitem value="Vacation" url="vacation.xhtml" icon="ui-icon-star" />
+				<p:menuitem value="Org Chart" url="orgChart.xhtml" icon="ui-icon-search" />
+				<p:menuitem value="Reports" url="reports.xhtml" icon="ui-icon-document" />
+				<p:menuitem value="Profile" url="profile.xhtml" icon="ui-icon-person" />
+			</p:tabMenu>
+		</h:form>
+	</h:panelGrid>
+	
+</ui:composition>
