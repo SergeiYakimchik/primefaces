@@ -49,22 +49,32 @@
 	</h:form>
 	
 	<p:dialog header="Vacation Dialog" widgetVar="vacDlg" modal="true" height="auto">  
-		<h:form>
+		<h:form id="vacDialogForm">
+			<p:growl id="vacGrowl" showDetail="true" />
 			<h:panelGrid columns="2" id="panel">
 				<h:outputText value="Name"/>
-				<p:inputText value="#{contactController.contact.name}" required="true"/> 
+				<p:inputText id="name" value="#{contactController.contact.name}" required="true"> 
+					<f:validateLength minimum="5" />
+                    <p:ajax event="blur" update="vacGrowl" />
+				</p:inputText>
 				
 				<h:outputText value="Phone"/>
-				<p:inputText value="#{contactController.contact.phone}" required="true"/>   
+				<p:inputText id="phone" value="#{contactController.contact.phone}" required="true"> 
+					<f:validateLength minimum="5" />
+                    <p:ajax event="blur" update="vacGrowl" />
+				</p:inputText>  
 				
 				<h:outputText value="Address"/>
-				<p:inputText value="#{contactController.contact.address}" required="true"/> 
+				<p:inputText id="address" value="#{contactController.contact.address}" required="true"> 
+					<f:validateLength minimum="5" />
+                    <p:ajax event="blur" update="vacGrowl" />
+				</p:inputText>
 				
 				<h:outputLabel for="price" value="price:" />  
             	<p:spinner id="price" value="#{contactController.contact.price}" min="0" suffix="$" />  
 			</h:panelGrid>
 			
-			<p:commandButton value="Save" update="panel"/>
+			<p:commandButton value="Save" update="panel" oncomplete="if(#{empty facesContext.maximumSeverity}){vacDlg.hide();}else{return false;}"/>
 		</h:form>
 	</p:dialog>
 	

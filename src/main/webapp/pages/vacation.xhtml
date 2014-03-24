@@ -19,7 +19,7 @@
 	<ui:include src="include/header.xhtml"/>
 
 	<h:panelGrid columns="1" cellpadding="10" width="100%">
-		<p:tabView id="tabView">
+		<p:tabView id="tabView" effectDuration="500" effect="fade">
 			<p:tab id="vacation" title="Vacation">
 				<h:panelGrid columns="1" cellpadding="10" width="100%">
 					<ui:include src="vacation/request.xhtml"/>
@@ -28,7 +28,9 @@
 				</h:panelGrid>
 			</p:tab>
 			<p:tab id="history" title="History">
-			
+				<h:form>
+					<p:schedule value="#{historyController.lazyEventModel}" />
+				</h:form>
 			</p:tab>
 			<p:tab id="calculator" title="Calculator">
 			
